@@ -5,6 +5,13 @@
 #include "LinkedList.h"
 using namespace std;
 
+/****************************************************************************************************************/
+/*										The Stable Matching Program												*/
+/*												Developed by													*/
+/*											Michael		Crispen													*/
+/*																												*/
+/****************************************************************************************************************/
+
 
 //Global Enumerations
 enum menName { VICTOR = 0, WYATT = 1, XAVIER = 2, YANCEY = 3, ZEUS = 4 };
