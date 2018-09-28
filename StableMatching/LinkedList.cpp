@@ -150,5 +150,8 @@ void LinkedList::PrintList() {
 }
 
 int LinkedList::Front() {
+	if(head!= nullptr)
 	return head->component;
+
+	return -1;
 }

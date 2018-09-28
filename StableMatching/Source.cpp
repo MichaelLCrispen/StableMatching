@@ -18,7 +18,7 @@ enum menName { VICTOR = 0, WYATT = 1, XAVIER = 2, YANCEY = 3, ZEUS = 4 };
 enum womanName { AMY = 0, BERTHA = 1, CLARE = 2, DIANE = 3, ERIKA = 4 };
 
 //Constant number in both lists
-const int n = 5; //Number of men & Women
+const int n = 7; //Number of men & Women
 
 
 //Function Declerations
@@ -26,6 +26,7 @@ void StandardInitializePreferances(int manPref[n][n], int womanPref[n][n]);
 void ReadPreferancesFromFile(int manPref[n][n], int womanPref[n][n]);
 void StableMatch(int manPref[n][n], int womanPref[n][n], int matches[n]);
 void PrintMatches(int matches[n]);
+void TestLList();
 
 int main() {
 	int manPref[n][n];
@@ -34,6 +35,7 @@ int main() {
 	
 	try {
 		//StandardInitializePreferances(manPref, womanPref);
+		TestLList();
 		ReadPreferancesFromFile(manPref, womanPref);
 		StableMatch(manPref, womanPref, matches);
 		PrintMatches(matches);
@@ -279,15 +281,27 @@ Start by creating n x n array ranking where Ranking [M,W] contains the rank of w
 			
 		}
 
-		cout << "Checking if " << w << " " << m << " is better than " << w << "  " << Current[m] << endl;
+		else {
+			//cout << "Checking if " << w << " " << m << " is better than " << w << "  " << Current[m] << endl << endl; ;
+			cout << "w: " << w << endl << "m: " << m << endl << endl;
+			
+			cout << "Current : ";
+			for (int i = 0; i < n; i++) {
+				cout << Current[i] << " ";
+			}
+			cout << endl;
+			cout << "Current[m] :" << Current[m];
+			cout << endl << endl;
 
-		if (Ranking[Current[m]][m] < Ranking[w][m]) {
-			cout << "This woman is better for the man.. Replacing " << endl;
-			freeWoman.Pop();
-			freeWoman.Push(Current[m]);
-			Current[m] = w;
+			cout << "else if (Ranking[Current[m]][m] < Ranking[m][w])" << endl;
+			cout << "if ( " << Ranking[m][Current[m]] << " < " << Ranking[w][m] << " ) " << endl;
+			if (Ranking[m][Current[m]] > Ranking[m][w]) {
+				cout << "This woman is better for the man.. Replacing " << endl;
+				freeWoman.Pop();
+				freeWoman.Push(Current[m]);
+				Current[m] = w;
+			}
 		}
-
 		cout << endl << endl << endl;
 	}
 	
@@ -302,13 +316,66 @@ Start by creating n x n array ranking where Ranking [M,W] contains the rank of w
 
 void PrintMatches(int matches[n]) {
 	//Matches are printed to the screen in the form (w,m)
-
+	cout << "( Man , Woman )" << endl;
 	for (int i = 0; i < n; i++) {
 		//cout << i << "Has Married " << Current[m] << endl;
-		cout << "( " << matches[i] << ", " << i << " )" << endl;
+		
+		cout << "( " << i << ", " << matches[i] << " )" << endl;
 		}
 
 		cout << endl;
 
 return;
+}
+
+void TestLList() {
+	
+	cout << endl << "******************************************" << endl;
+	cout << " Starting Linked List Tests " << endl;
+	cout << endl;
+
+	cout << "Creating List" << endl;
+	LinkedList test;
+	if (test.isEmpty())
+		cout << "The list is empty";
+	else
+	{
+		cout << "The list has items";
+	}
+
+	cout << endl;
+
+	cout << "Head data of empty list: " << test.Front() << endl;
+	cout  << "Pushing 1, 2, and 3" << endl;
+	test.Push(1);
+	test.Push(2);
+	test.Push(3);
+	
+	cout << "Length of list : " << test.Length() << endl;
+	if (test.isEmpty())
+		cout << "The list is empty";
+	else
+	{
+		cout << "The list has items";
+	}
+	cout << endl;
+	cout << "Item at the front of list : " << test.Front() << endl;
+
+	cout << "Popping items 1 2 and 3 off the list" << endl;
+	test.Pop();
+	test.Pop();
+	test.Pop();
+	test.Pop();
+
+	if (test.isEmpty())
+		cout << "The list is empty";
+	else
+	{
+		cout << "The list has items";
+	}
+	
+	cout << endl;
+	cout << "Ending Linked List Tests " << endl;
+	cout << endl << "******************************************" << endl;
+	return;
 }

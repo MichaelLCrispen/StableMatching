@@ -123,7 +123,9 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Match1.dat" />
+    <None Include="Match3_N_Equals_7.dat" />
+    <None Include="Match_1_N_Equals_5.dat" />
+    <None Include="Match_2_N_Equals_4.dat" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
