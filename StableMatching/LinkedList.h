@@ -19,20 +19,11 @@ public:
 	void Push(int data); 
 	void Pop();  
 
-
-	//void Insert(int data);
-	//void Delete(int data);
-	void Destroy();
 	bool Search(int data);
 	bool isEmpty() const;
 	int  Length() const;
 	void PrintList();
-
-	//For Testing Purposes
-	bool HeadNull();
-	bool TailNull();
 	int Front();
-	//int ReturnTailData();
 
 
 private:
@@ -41,11 +32,10 @@ private:
 	{
 		ItemType component;
 		NodePtr forwardLink;
-		//NodePtr reverseLink;
+		
 	};
 
 	NodePtr head;
-	//NodePtr tail;
 
 
 	int length;
