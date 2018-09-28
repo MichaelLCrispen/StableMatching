@@ -36,8 +36,6 @@ private:
 	};
 
 	NodePtr head;
-
-
 	int length;
 };
 
